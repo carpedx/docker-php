@@ -26,8 +26,8 @@ detail version see every floder
 ## Modified php.ini
 
 - memory_limit = 512M
-- post_max_size = 20M
-- upload_max_filesize = 20M
+- post_max_size = 64M
+- upload_max_filesize = 32M
 - date.timezone = Asia/Shanghai
 - max_execution_time = 60
 
