@@ -5,13 +5,25 @@ Docker with php include php and cli
 ## Usage
 
 ### Aliyun registry
-docker pull registry.cn-hangzhou.aliyuncs.com/carpedx/php
 
-- 7.4
+```shell
+docker pull registry.cn-hangzhou.aliyuncs.com/carpedx/php
+```
+
+Version included：
+
+- amd64-fpm-7.4-alpine
+- amd64-fpm-7.4-bullseye
+- amd64-cli-7.4-alpine
+- amd64-cli-7.4-bullseye
+- arm64-fpm-7.4-alpine
+- arm64-fpm-7.4-bullseye  
+- arm64-cli-7.4-alpine
+- arm64-cli-7.4-bullseye
 
 ## Added ext
 
-detail version see every floder
+Detail version see every folder：
 
 - amqp
 - bcmath
