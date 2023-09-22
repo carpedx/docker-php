@@ -2,6 +2,13 @@
 
 Docker with php include php and cli
 
+## Usage
+
+### Aliyun registry
+docker pull registry.cn-hangzhou.aliyuncs.com/carpedx/php
+
+- 7.4
+
 ## Added ext
 
 detail version see every floder
