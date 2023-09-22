@@ -58,4 +58,4 @@ Detail version see every folder：
 
 MIT
 
-Most of the methods in this file come from [docker-php](https://github.com/yansongda/docker-php)
+Most of the content in this file come from [docker-php](https://github.com/yansongda/docker-php)
