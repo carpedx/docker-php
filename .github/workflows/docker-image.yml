@@ -7,7 +7,6 @@ on:
     - cron: '0 0 * * 1'
 
 env:
-  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_ACCESSTOKEN }}
   ALIYUN_IMAGE_TOKEN: ${{ secrets.ALIYUN_IMAGE_ACCESSTOKEN }}
 
 jobs:
@@ -19,9 +18,6 @@ jobs:
       matrix:
         php-version:
           - '7.4'
-          - '8.0'
-          - '8.1'
-          - '8.2'
         php-mode:
           - fpm
           - cli
@@ -52,11 +48,6 @@ jobs:
         run: |
           docker tag carpedx/php carpedx/php:$tag
           docker tag carpedx/php registry.cn-hangzhou.aliyuncs.com/carpedx/php:$tag
-      - name: Push the Image to Docker registry
-        run: |
-          echo $DOCKERHUB_TOKEN | docker login --username carpedx --password-stdin
-          docker push carpedx/php:$tag
-          docker logout
       - name: Push the Image to Aliyun registry
         run: |
           echo $ALIYUN_IMAGE_TOKEN | docker login --username=870511922@qq.com registry.cn-hangzhou.aliyuncs.com --password-stdin
