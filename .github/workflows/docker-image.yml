@@ -41,24 +41,24 @@ jobs:
           echo $tag
           echo "tag=$tag" >> $GITHUB_ENV
       - name: Set up QEMU
-          uses: docker/setup-qemu-action@v2
-          with:
-            platforms: arm64
+        uses: docker/setup-qemu-action@v2
+        with:
+          platforms: arm64
       - name: Build the Docker image
-          run: |
-            docker buildx ls
-            docker buildx build -t carpedx/php --platform ${{ matrix.platform }} -f ./${{ matrix.php-version }}/${{ matrix.php-mode }}/${{ matrix.system }}/Dockerfile ./${{ matrix.php-version }}/${{ matrix.php-mode }}
+        run: |
+          docker buildx ls
+          docker buildx build -t carpedx/php --platform ${{ matrix.platform }} -f ./${{ matrix.php-version }}/${{ matrix.php-mode }}/${{ matrix.system }}/Dockerfile ./${{ matrix.php-version }}/${{ matrix.php-mode }}
       - name: Tag the Image
-          run: |
-            docker tag carpedx/php carpedx/php:$tag
-            docker tag carpedx/php registry.cn-hangzhou.aliyuncs.com/carpedx/php:$tag
+        run: |
+          docker tag carpedx/php carpedx/php:$tag
+          docker tag carpedx/php registry.cn-hangzhou.aliyuncs.com/carpedx/php:$tag
       - name: Push the Image to Docker registry
-          run: |
-            echo $DOCKERHUB_TOKEN | docker login --username carpedx --password-stdin
-            docker push carpedx/php:$tag
-            docker logout
+        run: |
+          echo $DOCKERHUB_TOKEN | docker login --username carpedx --password-stdin
+          docker push carpedx/php:$tag
+          docker logout
       - name: Push the Image to Aliyun registry
-          run: |
-            echo $ALIYUN_IMAGE_TOKEN | docker login --username=870511922@qq.com registry.cn-hangzhou.aliyuncs.com --password-stdin
-            docker push registry.cn-hangzhou.aliyuncs.com/carpedx/php:$tag
-            docker logout
+        run: |
+          echo $ALIYUN_IMAGE_TOKEN | docker login --username=870511922@qq.com registry.cn-hangzhou.aliyuncs.com --password-stdin
+          docker push registry.cn-hangzhou.aliyuncs.com/carpedx/php:$tag
+          docker logout
