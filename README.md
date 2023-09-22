@@ -41,3 +41,9 @@ detail version see every floder
 ## Added tools
 
 - composer
+
+## License
+
+MIT
+
+Most of the methods in this file come from [docker-php](https://github.com/yansongda/docker-php)
